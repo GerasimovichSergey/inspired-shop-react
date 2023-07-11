@@ -2,11 +2,11 @@ import { Top } from './Top/Top.jsx';
 import { Navigation } from './Navigation/Navigation.jsx';
 
 
-export const Header = () => {
+export const Header = ({ list }) => {
   return (
     <header>
       <Top />
-      <Navigation />
+      <Navigation list={list} />
     </header>
   );
 };

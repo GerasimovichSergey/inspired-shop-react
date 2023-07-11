@@ -1,4 +1,4 @@
-import { Container } from '../../Layout/Container.jsx';
+import { Container } from '../../Layout/Container/Container.jsx';
 import style from './Top.module.scss';
 import cn from 'classnames';
 import logo from '/src/assets/logo.svg';
