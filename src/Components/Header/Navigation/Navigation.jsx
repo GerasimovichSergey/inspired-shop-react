@@ -3,12 +3,12 @@ import { Category } from './Category/Category.jsx';
 import { Container } from '../../Layout/Container/Container.jsx';
 
 
-export const Navigation = ({ list }) => {
+export const Navigation = () => {
   return (
     <nav>
       <Container>
-        <Gender list={list} />
-        <Category list={list} />
+        <Gender />
+        <Category />
       </Container>
     </nav>
   );
