@@ -3,6 +3,7 @@ import style from './Goods.module.scss';
 import { Product } from '../Product/Product.jsx';
 import { useSelector } from 'react-redux';
 
+
 export const Goods = ({ categoryData }) => {
     const { goodsList } = useSelector(state => state.goods);
 
