@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from '../../../../const.js';
 import classNames from 'classnames';
 import { Count } from '../../../Count/Count.jsx';
-import { addToCart } from '../../../../features/cartSlice.js';
+import { addToCart, removeFromCart } from '../../../../features/cartSlice.js';
 import { ReactComponent as CloseSVG } from '../../../../assets/close.svg';
 
 
@@ -14,6 +14,10 @@ export const CartItem = ({ id, color, size, count, goodsList }) => {
 
     const handleCountChange = (count) => {
         dispatch(addToCart({ id, color, size, count }));
+    };
+
+    const handleRemoveItem = () => {
+        dispatch(removeFromCart({ id, color, size }));
     };
 
     return (
@@ -40,7 +44,7 @@ export const CartItem = ({ id, color, size, count, goodsList }) => {
                     <div className={style.sizeItem}>{size}</div>
                 </div>
             </div>
-            <button className={style.del} aria-label="Удалить товар из корзины">
+            <button className={style.del} onClick={handleRemoveItem} aria-label="Удалить товар из корзины">
                 <CloseSVG />
             </button>
             <Count

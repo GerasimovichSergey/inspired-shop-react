@@ -7,9 +7,18 @@ import { ReactComponent as LikeSVG } from '../../../assets/heart.svg';
 import { ReactComponent as SearchSVG } from '../../../assets/search.svg';
 import { ReactComponent as CartSVG } from '../../../assets/cart.svg';
 import classNames from 'classnames';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleSearch } from '../../../features/searchSlice.js';
 
 
 export const Top = () => {
+    const { countItems } = useSelector(state => state.cart);
+    const dispatch = useDispatch();
+
+    const handleOpenSearch = () => {
+        dispatch(toggleSearch());
+    };
+
     return (
         <div className={style.top}>
             <Container className={style.container}>
@@ -21,18 +30,19 @@ export const Top = () => {
 
                 <div className={style.navigation}>
                     <ul className={style.navList}>
-                        <li className={style.navItem}>
-                            <button className={style.link}>
+                        <li>
+                            <button className={style.link} onClick={handleOpenSearch}>
                                 <SearchSVG />
                             </button>
                         </li>
-                        <li className={style.navItem}>
-                            <NavLink to='/cart' className={style.link}>
+                        <li>
+                            <NavLink to="/cart" className={style.link}>
                                 <CartSVG />
+                                <span className={style.linkCount}>{countItems}</span>
                             </NavLink>
                         </li>
-                        <li className={style.navItem}>
-                            <NavLink to='/favorite' className={classNames(style.link, style.like)}>
+                        <li>
+                            <NavLink to="/favorite" className={classNames(style.link, style.like)}>
                                 <LikeSVG />
                             </NavLink>
                         </li>

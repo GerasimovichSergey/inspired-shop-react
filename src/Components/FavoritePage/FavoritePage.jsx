@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCategory } from '../../features/goodsSlice.js';
 import { usePageFromSearchParams } from '../../hooks/usePageFromSearchParams.js';
+import style from './FavoritePage.module.scss';
 
 
 export const FavoritePage = () => {
@@ -23,6 +24,9 @@ export const FavoritePage = () => {
     }, [favorites, page, dispatch]);
 
     return (
-        <Goods title="Избранное" />
+        favorites.length ?
+            <Goods title="Избранное" />
+            :
+            <h3 className={style.empty}>Вы ничего не добавили в избранное</h3>
     );
 };
