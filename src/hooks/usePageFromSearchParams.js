@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { setPage } from '../features/goodsSlice.js';
 
+
 export const usePageFromSearchParams = (dispatch) => {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
