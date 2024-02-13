@@ -40,7 +40,7 @@ export const CartItem = ({ id, color, size, count, goodsList }) => {
                     ></div>
                 </div>
                 <div className={style.size}>
-                    <p className={classNames(style.subtitle, style.sizeTitle)}>Цвет</p>
+                    <p className={classNames(style.subtitle, style.sizeTitle)}>Размер</p>
                     <div className={style.sizeItem}>{size}</div>
                 </div>
             </div>
